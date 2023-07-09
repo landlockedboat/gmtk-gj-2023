@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public void InitializeLevel()
     {
         dungeonController.currentLevel = levels[currentLevel];
+        dungeonController.ResetTiles();
+        heroController.heroState = 1;
         heroController.heroPosition = dungeonController.currentLevel.initialHeroPos;
         heroController.UpdateHeroVisualPosition();
         heroController.heroPath = dungeonController.currentLevel.heroPath;
