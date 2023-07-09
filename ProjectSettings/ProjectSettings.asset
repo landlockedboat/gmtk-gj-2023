@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.0.7
+  bundleVersion: 1.0.0.8
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -157,11 +157,11 @@ PlayerSettings:
   applicationIdentifier:
     WebGL: com.DefaultCompany.gmtk-gj-2023
   buildNumber:
-    Standalone: 8
-    iPhone: 8
+    Standalone: 9
+    iPhone: 9
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 9
+  AndroidBundleVersionCode: 10
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

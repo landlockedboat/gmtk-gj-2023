@@ -26,12 +26,12 @@ public class SlimeController : MonoBehaviour
         while (currentLookoutPosition.sqrMagnitude < 1000)
         {
             // Out of bounds
-            if (currentLookoutPosition.y >= dungeonController.tiles.Length ||
+            if (currentLookoutPosition.y >= dungeonController.currentLevel.tiles.Length ||
                 currentLookoutPosition.y < 0)
             {
                 return -1;
             }
-            if (currentLookoutPosition.x >= dungeonController.tiles[currentLookoutPosition.y].Length ||
+            if (currentLookoutPosition.x >= dungeonController.currentLevel.tiles[currentLookoutPosition.y].Length ||
                 currentLookoutPosition.x < 0)
             {
                 return -1;
@@ -39,7 +39,7 @@ public class SlimeController : MonoBehaviour
 
             // found a wall!
             // this blocks our vision, so no hero can be found in this direction
-            if (dungeonController.tiles[currentLookoutPosition.y][currentLookoutPosition.x] == 1)
+            if (dungeonController.currentLevel.tiles[currentLookoutPosition.y][currentLookoutPosition.x] == 1)
             {
                 return -1;
             }

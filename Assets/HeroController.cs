@@ -6,13 +6,13 @@ public class HeroController : MonoBehaviour
 {
     // HERO
     public Vector2Int heroPosition;
-    Vector2Int[] heroPath;
+    public Vector2Int[] heroPath;
     // Walking
     int heroState = 1;
 
     public float heroStepDelay = 2f;
     float currentHeroStepDelay;
-    int currentHeroPathIndex = 0;
+    public int currentHeroPathIndex = 0;
 
     public GameController gameController;
 
@@ -23,18 +23,11 @@ public class HeroController : MonoBehaviour
         // Initialization
         currentHeroStepDelay = heroStepDelay;
         // TODO implement pathfinding algorithm
-        heroPath = new Vector2Int[] {
-            new Vector2Int(0, 0), new Vector2Int(1, 0), new Vector2Int(2, 0),  new Vector2Int(3, 0), new Vector2Int(4, 0),
-            new Vector2Int(4, 1),
-            new Vector2Int(4, 2),  new Vector2Int(3, 2),  new Vector2Int(2, 2), new Vector2Int(1, 2), new Vector2Int(0, 2),
-            new Vector2Int(0, 3),
-            new Vector2Int(0, 4), new Vector2Int(1, 4), new Vector2Int(2, 4), new Vector2Int(3, 4), new Vector2Int(4, 4),
-        };
 
         UpdateHeroVisualPosition();
     }
 
-    void UpdateHeroVisualPosition()
+    public void UpdateHeroVisualPosition()
     {
         transform.position = new Vector3(heroPosition.x, -heroPosition.y);
     }

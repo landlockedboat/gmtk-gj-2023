@@ -19,9 +19,38 @@ public class GameController : MonoBehaviour
     // Playing
     public GameState gameState = GameState.Buying;
 
+    public LevelController[] levels;
+
+    public int currentLevel = 0;
+
+    
+    public void InitializeLevel()
+    {
+        dungeonController.currentLevel = levels[currentLevel];
+        heroController.heroPosition = dungeonController.currentLevel.initialHeroPos;
+        heroController.UpdateHeroVisualPosition();
+        heroController.heroPath = dungeonController.currentLevel.heroPath;
+        heroController.currentHeroPathIndex = 0;
+        money = dungeonController.currentLevel.initialMoney;
+
+        foreach (var slime in slimeControllers)
+        {
+            Destroy(slime.gameObject);
+        }
+        slimeControllers = new List<SlimeController>();
+    }
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        InitializeLevel();
+    }
+
+    public void ResetLevel()
+    {
+        InitializeLevel();
+        BeginBuying();
     }
 
 

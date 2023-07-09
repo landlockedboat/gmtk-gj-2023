@@ -6,6 +6,6 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3((dungeonController.tiles.Length -1) / 2, -(dungeonController.tiles[0].Length -1) / 2, -10);
+        transform.position = new Vector3((dungeonController.currentLevel.tiles.Length -1) / 2, -(dungeonController.currentLevel.tiles[0].Length -1) / 2, -10);
     }
 }
