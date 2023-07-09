@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum GameState
 {
-    Buying, Playing, Lost, Placing
+    Buying, Playing, Lost, Placing, Won
 }
 
 public class GameController : MonoBehaviour
@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         heroController.UpdateHeroVisualPosition();
         heroController.heroPath = dungeonController.currentLevel.heroPath;
         heroController.currentHeroPathIndex = 0;
+        heroController.currentlife = dungeonController.currentLevel.initialHeroLife;
         money = dungeonController.currentLevel.initialMoney;
 
         foreach (var slime in slimeControllers)
@@ -45,6 +46,18 @@ public class GameController : MonoBehaviour
     void Start()
     {
         InitializeLevel();
+    }
+
+    public bool CanNextLevel()
+    {
+        return currentLevel < levels.Length - 1;
+    }
+
+    public void LoadNextLevel()
+    {
+        ++currentLevel;
+        InitializeLevel();
+        BeginBuying();
     }
 
     public void ResetLevel()

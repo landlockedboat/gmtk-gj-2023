@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimePosition: {x: 4, y: 2}
-  stepDelay: 1
+  state: 0
+  stepDelay: 0.9
+  fightDelay: 1
+  fightDamage: 1
   price: 5
   gameController: {fileID: 0}
+  currentLife: 0

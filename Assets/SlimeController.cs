@@ -2,20 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeController : MonoBehaviour
+public class SlimeController : MonoBehaviour, ILiving
 {
     // SLIME
-    public Vector2Int slimePosition = new Vector2Int(4, 2);
+    public Vector2Int slimePosition;
     // Idle
-    int state = 0;
+    public int state = 0;
     public float stepDelay = 1f;
     float currentStepDelay = 1f;
     Vector2Int nextPosition;
+
+    public float fightDelay = 1f;
+    float currentFightDelay = 1f;
+    public float fightDamage = 1f;
 
     public int price = 5;
 
     DungeonController dungeonController;
     public GameController gameController;
+
+    public float currentLife;
+
+    public float Life { get => currentLife; set => currentLife = value; }
 
     private int FindHeroWithOffset(Vector2Int direction, Vector2Int startingPosition)
     {
@@ -56,8 +64,6 @@ public class SlimeController : MonoBehaviour
         return -1;
     }
 
-
-
     private void UpdateSlimeIdleState(Vector2Int direction)
     {
         int distanceFromHero = FindHeroWithOffset(direction, slimePosition);
@@ -68,11 +74,12 @@ public class SlimeController : MonoBehaviour
 
         nextPosition = slimePosition + direction;
         state = 1;
-        Debug.Log("Hero found!");
+        //Debug.Log("Hero found!");
 
         if (distanceFromHero <= 1)
         {
             // We're fighting!!
+            gameController.heroController.heroState = 2;
             state = 2;
         }
     }
@@ -117,6 +124,14 @@ public class SlimeController : MonoBehaviour
 
             // 1 = moving
             case 1:
+                // start with +x (right)
+                UpdateSlimeIdleState(new Vector2Int(1, 0));
+                // -x (left)
+                UpdateSlimeIdleState(new Vector2Int(-1, 0));
+                // +y (down)
+                UpdateSlimeIdleState(new Vector2Int(0, 1));
+                // -y (up)
+                UpdateSlimeIdleState(new Vector2Int(0, -1));
                 if (currentStepDelay > 0)
                 {
                     currentStepDelay -= Time.deltaTime;
@@ -131,10 +146,22 @@ public class SlimeController : MonoBehaviour
                 break;
             // 2 = fighting
             case 2:
-                // the wee bastard dies on contact
-                Debug.Log("The hero has defeated the slime!");
-                // it dead bro
-                state = -1;
+                if (currentFightDelay > 0)
+                {
+                    currentFightDelay -= Time.deltaTime;
+                    break;
+                }
+                currentFightDelay = fightDelay;
+                // Strike the hero!
+                gameController.heroController.Life -= fightDamage;
+                currentLife -= gameController.heroController.fightDamage;
+                if(currentLife <= 0)
+                {
+                    // the wee bastard is dead
+                    state = -1;
+                    gameController.heroController.DisengageIfNoEnemiesClose();
+                    Debug.Log("The hero has killed a slime");
+                }
                 break;
             case -1:
                 // Dead!

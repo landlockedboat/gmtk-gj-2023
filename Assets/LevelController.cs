@@ -22,6 +22,8 @@ public class LevelController : MonoBehaviour
             new Vector2Int(0, 4), new Vector2Int(1, 4), new Vector2Int(2, 4), new Vector2Int(3, 4), new Vector2Int(4, 4),
         };
 
+    public float initialHeroLife = 2;
+
     private void Awake()
     {
 
