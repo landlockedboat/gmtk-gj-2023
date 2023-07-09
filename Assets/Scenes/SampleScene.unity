@@ -720,7 +720,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1404488543}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &404277839
 MonoBehaviour:
@@ -756,6 +756,73 @@ MonoBehaviour:
   - {x: 3, y: 4}
   - {x: 4, y: 4}
   initialHeroLife: 2
+--- !u!1 &549767502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549767503}
+  - component: {fileID: 549767504}
+  m_Layer: 0
+  m_Name: different_rooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &549767503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549767502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404488543}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549767504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549767502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0e82f820e0e974680160e7631c4892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesFile: {fileID: 4900000, guid: 6b8d48d8378d5a34aadde39bc6c0122a, type: 3}
+  initialMoney: 25
+  initialHeroPos: {x: 2, y: 0}
+  heroPath:
+  - {x: 2, y: 0}
+  - {x: 2, y: 1}
+  - {x: 3, y: 1}
+  - {x: 4, y: 1}
+  - {x: 5, y: 1}
+  - {x: 6, y: 1}
+  - {x: 6, y: 2}
+  - {x: 7, y: 2}
+  - {x: 7, y: 2}
+  - {x: 7, y: 3}
+  - {x: 7, y: 4}
+  - {x: 6, y: 4}
+  - {x: 5, y: 4}
+  - {x: 4, y: 4}
+  - {x: 3, y: 4}
+  - {x: 2, y: 4}
+  - {x: 2, y: 5}
+  - {x: 2, y: 6}
+  initialHeroLife: 5
 --- !u!1 &601843181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeControllerPrefab: {fileID: 6343009046836718286, guid: 89998cc23d5e0624bba50cfc5f558a97, type: 3}
   gameController: {fileID: 1404488542}
+  text: {fileID: 253603371}
 --- !u!1 &716292448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1644,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1404488543}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &896538122
 MonoBehaviour:
@@ -1592,26 +1660,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilesFile: {fileID: 4900000, guid: 0ec8a57603f7d5d43ac941d277928733, type: 3}
   initialMoney: 5
-  initialHeroPos: {x: 0, y: 0}
+  initialHeroPos: {x: 2, y: 0}
   heroPath:
-  - {x: 0, y: 0}
-  - {x: 1, y: 0}
   - {x: 2, y: 0}
-  - {x: 3, y: 0}
-  - {x: 4, y: 0}
-  - {x: 4, y: 1}
-  - {x: 4, y: 2}
-  - {x: 3, y: 2}
+  - {x: 2, y: 1}
   - {x: 2, y: 2}
-  - {x: 1, y: 2}
-  - {x: 0, y: 2}
-  - {x: 0, y: 3}
-  - {x: 0, y: 4}
-  - {x: 1, y: 4}
+  - {x: 2, y: 3}
   - {x: 2, y: 4}
-  - {x: 3, y: 4}
-  - {x: 4, y: 4}
-  initialHeroLife: 2
+  initialHeroLife: 1
 --- !u!1 &916960669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,7 +1754,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404488542}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ResetLevel
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2258,7 +2314,11 @@ MonoBehaviour:
   slimePrefab: {fileID: 6343009046836718285, guid: 89998cc23d5e0624bba50cfc5f558a97, type: 3}
   gameState: 0
   levels:
+  - {fileID: 1784243352}
+  - {fileID: 896538122}
   - {fileID: 404277839}
+  - {fileID: 1448229600}
+  - {fileID: 549767504}
   currentLevel: 0
 --- !u!4 &1404488543
 Transform:
@@ -2272,11 +2332,72 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1784243351}
   - {fileID: 896538121}
   - {fileID: 404277838}
+  - {fileID: 1448229599}
+  - {fileID: 549767503}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1448229598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448229599}
+  - component: {fileID: 1448229600}
+  m_Layer: 0
+  m_Name: squiggly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448229599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448229598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404488543}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448229600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448229598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0e82f820e0e974680160e7631c4892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesFile: {fileID: 4900000, guid: f6eed3433fe61af4d90aed08b045b436, type: 3}
+  initialMoney: 15
+  initialHeroPos: {x: 2, y: 0}
+  heroPath:
+  - {x: 2, y: 0}
+  - {x: 2, y: 1}
+  - {x: 3, y: 1}
+  - {x: 4, y: 1}
+  - {x: 4, y: 2}
+  - {x: 4, y: 3}
+  - {x: 3, y: 3}
+  - {x: 2, y: 3}
+  - {x: 2, y: 4}
+  initialHeroLife: 3
 --- !u!1 &1513185107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,6 +2636,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581326317}
   m_CullTransparentMesh: 1
+--- !u!1 &1784243350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784243351}
+  - component: {fileID: 1784243352}
+  m_Layer: 0
+  m_Name: straight_line
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784243351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784243350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404488543}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784243352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784243350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0e82f820e0e974680160e7631c4892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesFile: {fileID: 4900000, guid: 27e58ecf00fae854581ab36e21d1225c, type: 3}
+  initialMoney: 5
+  initialHeroPos: {x: 2, y: 0}
+  heroPath:
+  - {x: 2, y: 0}
+  - {x: 2, y: 1}
+  - {x: 2, y: 2}
+  - {x: 2, y: 3}
+  - {x: 2, y: 4}
+  initialHeroLife: 1
 --- !u!1 &1900725526
 GameObject:
   m_ObjectHideFlags: 0
